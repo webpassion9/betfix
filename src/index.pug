@@ -1,0 +1,136 @@
+include includes/mixins
+
+doctype html
+block head
+html(lang="en")
+	head
+		meta(charset="utf-8")
+		meta(name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, user-scalable=no")
+		meta(name="format-detection" content="telephone=no")
+
+		link(rel="stylesheet", href="css/style.min.css")
+		
+		link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.css")
+
+		title BetFix
+
+	body
+		.wrapper
+
+			include includes/header
+		
+			main.content
+				.main-section
+					.container
+						.main-top.row
+							.col-lg-8
+								h1.heading-main Your own 
+									span football bot
+									|  24/7 on the Betfair exchange
+							.col-lg-4.main-top__text
+								p Real-time delivery signals from the bot to your private telegram channel.
+								a(href="#").btn.btn-base.main-top__btn Register
+						.bot-slider.swiper
+							.swiper-wrapper
+								.swiper-slide
+									.bot-info
+										.bot-info__img
+											img(src="img/bot-img.jpg", alt="")
+										.bot-info__note.bot-info__note--pos1 The name of your private channel (available in the maximum rate)
+										.bot-info__note.bot-info__note--pos2 Setting up the bank amount, min 1 €, max 100 000 000 €
+										.bot-info__note.bot-info__note--pos3 Additionally: configuring the behavior of the bot when receiving a red card in a match; combining a black and white list of commands to filter matches; tracking events W1, X, W2, Total Over and Total Under (by default, Total Under is disabled); uploading statistics on the bot to an Exel file for the last 3 months.
+								.swiper-slide
+									.bot-info
+										.bot-info__img
+											img(src="img/bot-img.jpg", alt="")
+										.bot-info__note.bot-info__note--pos1 The name of your private channel (available in the maximum rate)
+										.bot-info__note.bot-info__note--pos2 Setting up the bank amount, min 1 €, max 100 000 000 €
+										.bot-info__note.bot-info__note--pos3 Additionally: configuring the behavior of the bot when receiving a red card in a match; combining a black and white list of commands to filter matches; tracking events W1, X, W2, Total Over and Total Under (by default, Total Under is disabled); uploading statistics on the bot to an Exel file for the last 3 months.
+								.swiper-slide
+									.bot-info
+										.bot-info__img
+											img(src="img/bot-img.jpg", alt="")
+										.bot-info__note.bot-info__note--pos1 The name of your private channel (available in the maximum rate)
+										.bot-info__note.bot-info__note--pos2 Setting up the bank amount, min 1 €, max 100 000 000 €
+										.bot-info__note.bot-info__note--pos3 Additionally: configuring the behavior of the bot when receiving a red card in a match; combining a black and white list of commands to filter matches; tracking events W1, X, W2, Total Over and Total Under (by default, Total Under is disabled); uploading statistics on the bot to an Exel file for the last 3 months.
+								.swiper-slide
+									.bot-info
+										.bot-info__img
+											img(src="img/bot-img.jpg", alt="")
+										.bot-info__note.bot-info__note--pos1 The name of your private channel (available in the maximum rate)
+										.bot-info__note.bot-info__note--pos2 Setting up the bank amount, min 1 €, max 100 000 000 €
+										.bot-info__note.bot-info__note--pos3 Additionally: configuring the behavior of the bot when receiving a red card in a match; combining a black and white list of commands to filter matches; tracking events W1, X, W2, Total Over and Total Under (by default, Total Under is disabled); uploading statistics on the bot to an Exel file for the last 3 months.
+							.bot-slider__bar
+								.bot-slider__nav-wrap
+									.bot-slider__nav.bot-slider__nav-prev
+										+sprite("icon-arrow-prev")
+									.bot-slider__nav.bot-slider__nav-next
+										+sprite("icon-arrow-next")
+								.bot-slider__counter
+				.tariffs
+					.container
+						.row.tariffs__row
+							.col-lg-4
+								h2.heading-normal
+									span The tariff
+									|  plan
+							.col-lg-8.tariffs-row
+								.tariff-item
+									.tariff-item__heading Basic
+									ul.tariff-item__info
+										li Our logo and advertising on the chart
+										li other basic settings
+									.tariff-item__price
+										.tariff-item__price-val 60 €
+										.tariff-item__price-text /month
+								.tariff-item
+									.tariff-item__heading Maximum
+									ul.tariff-item__info
+										li Your logo and advertising on the chart
+										li other basic settings
+									.tariff-item__price
+										.tariff-item__price-val 70 €
+										.tariff-item__price-text /month
+				
+				.contact
+					.container.contact__container
+						.contact__text
+							h2.heading-normal.contact__heading
+								span How
+								|  do I buy a bot?
+							a(href="#").btn.btn-base Write to telegram
+						.contact__img
+							img(src="img/bottom-img.jpg", alt="")
+			
+			include includes/footer
+
+
+		script(src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.js")
+		script(src="js/common.js")
+		script.
+			document.addEventListener('DOMContentLoaded', function () {
+				const botSlider = new Swiper('.bot-slider', {
+					loop: true,
+					navigation: {
+						nextEl: '.bot-slider__nav-next',
+						prevEl: '.bot-slider__nav-prev',
+					},
+				});
+
+				botSlider.on('init', function () {
+					updateCounter();
+				});
+
+				botSlider.on('slideChange', function () {
+					updateCounter();
+				});
+
+				function updateCounter() {
+					const counter = document.querySelector('.bot-slider__counter');
+					if (counter) {
+						const currentIndex = botSlider.realIndex + 1;
+						const totalSlides = botSlider.slides.length;
+						counter.innerHTML = `<span>${currentIndex}</span>/${totalSlides}`;
+					}
+				}
+			});

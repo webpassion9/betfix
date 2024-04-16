@@ -1,0 +1,27 @@
+// fonts
+$fontBase: "Shentox", Arial, sans-serif;
+
+// colors
+:root {
+	--color-white: #FFFFFF;
+	--color-black: #000000;
+	--color-dark: #0E1310;
+	--color-gray-light: #FBFBFB;
+	--color-green: #87FFBE;
+	--color-blue: #0032B2;
+	--color-btn-text: #191A1A;
+	--color-gray: #D7D7D7;
+	--color-gray-bg: #F3F3F3;
+	--color-gray-sec: #919292;
+	--color-gray-third: #5F6060;
+}
+
+// breakpoints
+$xs: 320px;
+$sm: 576px;
+$md: 768px;
+$lg: 992px;
+$xl: 1200px;
+$xxl: 1400px;
+$hd: 1600px;
+

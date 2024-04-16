@@ -1,0 +1,65 @@
+.btn {
+	cursor: pointer;
+	text-decoration: none;
+	background: none;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	transition: all .25s;
+	max-width: 100%;
+	outline: none;
+	&:hover {
+		text-decoration: none;
+	}
+	&:active {
+		transition: none;
+	}
+
+	&-base {
+		background: var(--color-green); 
+		padding: 12px 30px;
+		height: 47px;
+		border-radius: 4px;
+		font-size: 17px;
+		line-height: 1;
+		color: var(--color-btn-text);
+		&:hover {
+			background: #66ffac;
+		}
+	}
+
+	&-mobile-menu {
+		position: relative;
+		width: 40px;
+		height: 40px;
+		align-self: center;
+		margin-left: auto;
+		&:before {
+			content: "";
+			position: absolute;
+			left: 50%;
+			transform: translateX(-50%);
+			height: 2px;
+			width: 24px;
+			background: var(--color-green);
+			top: 14px;
+		}
+		&:after {
+			content: "";
+			position: absolute;
+			left: 50%;
+			transform: translateX(-50%);
+			height: 2px;
+			width: 24px;
+			background: var(--color-green);
+			top: 22px;
+		}
+	}
+
+	&--fullwidth {
+		width: 100%;
+	}
+
+	
+}
